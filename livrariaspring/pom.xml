@@ -8,7 +8,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<build>
-		<finalName>casadocodigo</finalName>
+		<finalName>livrariaspring</finalName>
 	</build>
 	<properties>
 		<failOnMissingWebXml>false</failOnMissingWebXml>

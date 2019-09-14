@@ -42,7 +42,7 @@ public class JPAConfiguration {
 
 	}
 
-	  @Bean
+	    @Bean
 	    public JpaTransactionManager transactionManager(EntityManagerFactory emf){
 	        return new JpaTransactionManager(emf);
 	    }
