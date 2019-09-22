@@ -33,7 +33,7 @@ public class JPAConfiguration {
 		Properties propiedades = new Properties();
 		propiedades.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
 		propiedades.setProperty("hibernate.show_sql", "true");
-		propiedades.setProperty("hibernate.hbm2ddl.auto", "create");
+		propiedades.setProperty("hibernate.hbm2ddl.auto", "update");
 
 		factoryBean.setJpaProperties(propiedades);
 		factoryBean.setPackagesToScan("br.com.livrariaspring.models");
