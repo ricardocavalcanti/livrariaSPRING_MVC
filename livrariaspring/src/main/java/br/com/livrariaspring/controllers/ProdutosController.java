@@ -20,25 +20,24 @@ import br.com.livrariaspring.models.TipoPreco;
 import br.com.livrariaspring.validation.ProdutoValidation;
 
 @Controller
-@RequestMapping("produtos")
+@RequestMapping("/produtos")
 public class ProdutosController {
 
 	@Autowired
 	private ProdutoDao produtoDao;
-	
-	//AMARRA O PRODUTOVALIDATION
+
+	// AMARRA O PRODUTOVALIDATION @Valid
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		
+
 		binder.addValidators(new ProdutoValidation());
-		
+
 	}
-	
 
 	@RequestMapping("/form")
 	public ModelAndView form() {
 
-		System.out.println("Entrando no Produtos Controller");
+		System.out.println("Entrando no ProdutosController - ModelAndView form()");
 
 		// Enviando o objeto preco para o form jsp Produto
 		ModelAndView modelAndView = new ModelAndView("produtos/form");
@@ -50,27 +49,27 @@ public class ProdutosController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView gravar(@Valid Produto produto, BindingResult result, RedirectAttributes redirectAttributes) {
 
+		System.out.println("Entrando ProdutosController - ModelAndView gravar()");
 		System.out.println(produto);
-		
-		//VALIDACAO CAMPOS PRODUTO
-		if(result.hasErrors()) {
-			
+
+		// VALIDACAO CAMPOS PRODUTO
+		if (result.hasErrors()) {
+
 			return form();
-			
-			
+
 		}
-		
-		produtoDao.gravar(produto);		
+
+		produtoDao.gravar(produto);
 		redirectAttributes.addFlashAttribute("sucesso", "Produto cadastrado com sucesso!");
 
-		return new ModelAndView("redirect:produtos");
+		return new ModelAndView("redirect:/produtos");
 
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView listar() {
 
-		System.out.println("Entrando no Produtos Controller - Listar");
+		System.out.println("Entrando ProdutosController - ModelAndView listar()");
 
 		List<Produto> listaProdutos = produtoDao.listar();
 		ModelAndView modelAndView = new ModelAndView("produtos/lista");
