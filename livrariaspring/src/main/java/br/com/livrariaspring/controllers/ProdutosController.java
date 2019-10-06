@@ -35,7 +35,7 @@ public class ProdutosController {
 	}
 
 	@RequestMapping("/form")
-	public ModelAndView form() {
+	public ModelAndView form(Produto produto) {
 
 		System.out.println("Entrando no ProdutosController - ModelAndView form()");
 
@@ -55,7 +55,7 @@ public class ProdutosController {
 		// VALIDACAO CAMPOS PRODUTO
 		if (result.hasErrors()) {
 
-			return form();
+			return form(produto);
 
 		}
 
