@@ -20,7 +20,7 @@
 		</div>
 		<div>
 			<label>Descrição</label>			
-			<form:textarea rows="10" cols="20" path="descricao"/>
+			<form:textarea path="descricao" rows="10" cols="20" />
 			<form:errors path="descricao"/>
 		</div>
 		<div>
